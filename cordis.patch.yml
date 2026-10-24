@@ -1,0 +1,7 @@
+# Applied after the standard DeepSeek Harness bundles.
+- insert:
+    - id: xgs
+      name: xgs
+      config:
+        injectOrder: -99999
+        maxRecoverPerTurn: 2

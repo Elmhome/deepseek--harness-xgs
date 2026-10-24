@@ -1,0 +1,33 @@
+{
+  "name": "xgs",
+  "version": "1.0.0",
+  "description": "XGS for DeepSeek Harness — 小怪兽 / Elmhome",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "prompts",
+    "rules",
+    "skills",
+    "cordis.patch.yml",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check index.js",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dsh": {
+    "id": "xgs",
+    "name": "XGS · 小怪兽",
+    "version": "1.0.0",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
