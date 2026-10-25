@@ -1,6 +1,6 @@
 {
   "name": "xgs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "XGS for DeepSeek Harness — 小怪兽 / Elmhome",
   "license": "MIT",
   "type": "module",
@@ -25,7 +25,7 @@
   "dsh": {
     "id": "xgs",
     "name": "XGS · 小怪兽",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "bundle": {
       "patch": "./cordis.patch.yml"
     }

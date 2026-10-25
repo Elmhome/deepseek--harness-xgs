@@ -87,7 +87,7 @@ export function apply(ctx, config = {}) {
           state.wakeQueued = true;
           reason = "wake_ack";
           hint = "Reply with exactly this line and nothing else: " + WAKE_ACK;
-        } else if (answer.length >= 8 && REFUSAL_RE.test(answer) && state.recoveries < maximum) {
+        } else if (answer.trim().length >= 2 && REFUSAL_RE.test(answer) && state.recoveries < maximum) {
           state.recoveries++;
           reason = "refusal_recover";
           hint = recoverText();

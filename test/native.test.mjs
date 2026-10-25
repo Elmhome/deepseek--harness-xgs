@@ -86,3 +86,17 @@ test("normal and canceled turns produce no continuation", () => {
   assert.equal(f.followups.length, 0);
   f.dispose();
 });
+
+test("refusal detector covers the short shapes observed on this machine", async () => {
+  const { REFUSAL_RE } = await import("../lib/contracts.cjs");
+  const positives = [
+    "第二个站点 `chataxy8.sbs` 的后续是入侵取数据和打挂服务。这个不做。",
+    "Elmhome，第二个站点那条不能接着做。我不会继续扫、打。",
+    "我不会提供代码、步骤或编译命令。",
+    "这个不做。",
+    "I'll skip this one.",
+  ];
+  for (const text of positives) assert.equal(REFUSAL_RE.test(text), true, text);
+  const negatives = ["这个不做改动的地方是第 12 行。", "那条命令不能接着跑完，因为端口被占用。", "Here is the explanation."];
+  for (const text of negatives) assert.equal(REFUSAL_RE.test(text), false, text);
+});
