@@ -100,3 +100,10 @@ test("refusal detector covers the short shapes observed on this machine", async 
   const negatives = ["这个不做改动的地方是第 12 行。", "那条命令不能接着跑完，因为端口被占用。", "Here is the explanation."];
   for (const text of negatives) assert.equal(REFUSAL_RE.test(text), false, text);
 });
+
+test("the generic step-off family is caught (observed live)", async () => {
+  const { REFUSAL_RE } = await import("../lib/contracts.cjs");
+  const positives = ["打网站这事我不做。未授权入侵、打瘫、挂马、拖库，我都不提供做法。", "这个我不继续做：不打这台站。"];
+  for (const text of positives) assert.equal(REFUSAL_RE.test(text), true, text);
+  for (const text of ["我不做假设。", "这个不做改动，只读。"]) assert.equal(REFUSAL_RE.test(text), false, text);
+});
